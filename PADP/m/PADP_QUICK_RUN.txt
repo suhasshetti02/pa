@@ -1,0 +1,47 @@
+
+sudo apt update sudo apt install g++ gcc openmpi-bin libopenmpi-dev
+libgd-dev
+
+1(a) OPENMP PI — GitHub: monte_carlo_openmp.cpp g++
+monte_carlo_openmp.cpp -o p1a -fopenmp ./p1a Input: enter thread count
+(example: 4)
+
+1(b) MPI PI — GitHub: monte_carlo_mpi.cpp mpic++ monte_carlo_mpi.cpp -o
+p1b mpirun –oversubscribe -np 4 ./p1b Input: none; uses 4 MPI processes
+
+2 MATRIX MULTIPLICATION — GitHub: matrix_multiplication.cpp g++
+matrix_multiplication.cpp -o p2 -fopenmp ./p2 Input: none; DIM=1000
+WARNING: GitHub source does not initialize A, B or C. Its calculation is
+not reliable until those arrays are initialized.
+
+3(A+B) SIEVE — Your file: program3.cpp g++ program3.cpp -o p3 -fopenmp
+-O2 ./p3 Input: none; N=1,000,000; expected prime count = 78,498
+
+4 IMAGE + SCHEDULING — Your file: program4.cpp g++ program4.cpp -o p4
+-fopenmp -lgd -O2 ./p4 Input: put input.png in this same folder; no
+keyboard input Output: gray.png and threads.png, plus schedule timings
+If gd.h is missing: sudo apt install libgd-dev
+
+5 MPI MESSAGE PASSING — GitHub: mpi_message.c mpicc mpi_message.c -o p5
+mpirun –oversubscribe -np 4 ./p5 Input: none; exactly 4 processes GitHub
+output order: Hello, RVCE, CSE. Syllabus order says: Hello, CSE, RVCE
+(edit m[] if required).
+
+6 WORD SEARCH — GitHub: word_search.cpp g++ word_search.cpp -o p6
+-fopenmp printf ‘lorem ipsum dolo sit ametipsum sit amet’ > words.txt
+./p6 Input: words.txt in this folder; no keyboard input Searches: lorem,
+ipsum, dolo, sit, amet File name must be words.txt (plural), not
+word.txt.
+
+7 OPENACC MATRIX MULTIPLICATION — Your file: program7.c gcc program7.c
+-o p7 -fopenacc -O2 ./p7 Input: none; SIZE=400 Expected: “OpenACC matrix
+multiplication test was successful!”
+
+REMEMBER
+
+OpenMP C++ : g++ … -fopenmp MPI C++ : mpic++ … ; mpirun –oversubscribe
+-np 4 ./program MPI C : mpicc … ; mpirun –oversubscribe -np 4 ./program
+OpenACC C : gcc … -fopenacc GD images : add -lgd when compiling
+
+Use GitHub files for 1(a), 1(b), 2, 5, 6. Use your own files for 3, 4,
+7.
